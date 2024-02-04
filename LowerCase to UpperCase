@@ -1,0 +1,20 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+void toUpperCase(char name[])
+{
+    int len=strlen(name);
+    for(int i=0;i<len;i++)
+    {
+       name[i]=name[i]-32;
+    }
+}
+
+int main() {
+    char name[100];
+    cout<<"Enter word: ";
+    cin>>name;
+    toUpperCase(name);
+    cout<<"Word after conversion to uppercase is: "<<name;
+    return 0;
+}
