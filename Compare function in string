@@ -1,0 +1,15 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main() {
+    // Write C++ code here
+    string a="Love";
+    string b="Love";
+    string c="love";
+    string d="Dove";
+    cout<<a.compare(b)<<endl;
+    cout<<a.compare(c)<<endl;
+    cout<<a.compare(d)<<endl;
+    return 0;
+}
