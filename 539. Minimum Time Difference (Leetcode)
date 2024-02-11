@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int findMinDifference(vector<string>& p) {
+        
+       vector <int> mini;
+       for (int i=0;i<p.size();i++)
+       {
+           string s=p[i];
+           int hours=stoi(s.substr(0,2));
+           int mins=stoi(s.substr(3,2));
+        int totmin=hours*60+mins;
+           mini.push_back(totmin);
+       }
+
+       sort(mini.begin(),mini.end());
+       int mindiff=INT_MAX;
+       for(int i=0;i<mini.size()-1;i++)
+       {
+           if((mini[i+1]-mini[i])<mindiff)
+           mindiff=(mini[i+1]-mini[i]);
+       }
+    int lastDiff=mini[0]+1440-mini[mini.size()-1];
+     mindiff=min(lastDiff,mindiff);
+        return mindiff;
+    }
+};
