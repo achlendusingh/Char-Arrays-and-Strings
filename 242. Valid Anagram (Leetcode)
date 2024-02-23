@@ -1,0 +1,25 @@
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        map<char,int> ana;
+        if(s.length()==t.length())
+        {
+        for (auto i:s)
+        {
+            ana[i]++;
+        }
+       for(auto i:t)
+       {
+           ana[i]--;
+       }
+       for (int i=0;i<s.length();i++)
+       {
+           if(ana[s[i]]>0)
+           return false;
+       }
+       return true;
+        }
+        else
+        return false;
+    }
+};
