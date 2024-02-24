@@ -1,0 +1,36 @@
+class Solution {
+public:
+    string reverseVowels(string s) {
+        int i=0;
+        int j=s.length()-1;
+        bool IisLowercaseVowel, IisUppercaseVowel;
+        bool JisLowercaseVowel, JisUppercaseVowel;
+        while(i<j)
+        {
+            char l=s[i];
+            cout<<"i is:"<<l<<" ";
+            char h=s[j];
+              cout<<"j is:"<<h<<" ";
+            IisLowercaseVowel = (l == 'a' || l == 'e' || l == 'i' || l == 'o' || l == 'u');
+            JisLowercaseVowel = (h == 'a' || h == 'e' || h == 'i' || h == 'o' || h == 'u');
+             IisUppercaseVowel = (l == 'A' || l == 'E' || l == 'I' || l == 'O' || l == 'U');
+              JisUppercaseVowel = (h == 'A' || h == 'E' || h == 'I' || h == 'O' || h == 'U');
+            if (  (IisLowercaseVowel || IisUppercaseVowel) && (JisLowercaseVowel || JisUppercaseVowel))
+            {
+                swap(s[i],s[j]);
+                i++;
+                j--;
+            }
+            else if (IisLowercaseVowel || IisUppercaseVowel)
+            {
+                j--;
+            }
+            else 
+            {
+                i++;
+            }
+            cout<<endl;
+        }
+        return s;
+    }
+};
