@@ -1,0 +1,43 @@
+class Solution {
+public:
+    string reorganizeString(string s) {
+        int hash[26]={0};
+        for(int i=0;i<s.size();i++)
+        {
+            hash[s[i]-'a']++;
+        }
+        char maxfreqchar;
+        int maxfreq=INT_MIN;
+        for(int i=0;i<26;i++)
+        {
+            if (maxfreq<hash[i])
+            {
+                maxfreq=hash[i];
+                maxfreqchar=i+'a';
+            }
+        }
+        int index=0;
+       while(maxfreq>0 && index<s.size())
+        {
+            s[index]=maxfreqchar;
+            maxfreq--;
+            index+=2;
+        }
+        if(maxfreq != 0)
+        {
+            return "";
+        }
+        hash[maxfreqchar-'a']=0;
+        for(int i=0;i<26;i++)
+        {
+            while(hash[i]>0)
+            {
+                index= index>=s.size()?1:index;
+                s[index]=i+'a';
+                hash[i]--;
+                index+=2;
+            }
+        }
+        return s;
+    }
+};
