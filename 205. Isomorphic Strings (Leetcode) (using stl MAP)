@@ -1,0 +1,31 @@
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+        if(s.length()!=t.length())
+        {
+            return false;
+        }
+        else
+        {
+            map<char,char> mp;
+            map <char,int> used;
+            for (int i=0;i<s.length();i++)
+            {
+                if ( mp[s[i]]==0 && used[t[i]]==0)
+                {
+                    mp[s[i]]=t[i];
+                    used[t[i]]++;
+                }
+                
+                else
+                {
+                    if(mp[s[i]]!=t[i])
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+    }
+};
