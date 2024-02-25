@@ -1,0 +1,29 @@
+class Solution {
+public:
+    string expandAtIndex(string s,int i,int j)
+    {
+      string str;
+      while(i>=0 && j<s.length() && s[i]==s[j])
+      {
+          str=s.substr(i,j-i+1);
+          i--;
+          j++;
+      }
+      return str;
+    }
+
+    string longestPalindrome(string s) {
+       string ans="";
+        for(int i=0;i<s.length();i++)
+        {
+            string odd=expandAtIndex(s,i,i);
+            if(odd.length()>ans.length())
+            ans=odd;
+            
+            string even=expandAtIndex(s,i,i+1);
+            if(even.length()>ans.length())
+            ans=even;
+        }
+        return ans;
+    }
+};
