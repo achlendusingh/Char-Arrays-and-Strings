@@ -8,7 +8,7 @@ public:
         else
         {
             map<char,char> mp;
-            map <char,int> used;
+            map <char,int> used; // creating a map to keep track of used chars in string t
             for (int i=0;i<s.length();i++)
             {
                 if ( mp[s[i]]==0 && used[t[i]]==0)
