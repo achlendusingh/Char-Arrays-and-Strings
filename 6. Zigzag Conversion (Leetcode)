@@ -1,0 +1,40 @@
+class Solution {
+public:
+    string convert(string s, int numRows) {
+       vector <string> v(numRows);
+       if (numRows==1)
+       {
+           return s;
+       }
+       int i=0,row=0;
+       bool direction=1; //direction=1 means top to bottom approach
+       while(true)
+       {
+           if (direction) //top to bottom
+           {
+               while(row<numRows && i<s.size())
+               {
+                 v[row++].push_back(s[i++]);
+               }
+               row=numRows-2;
+           }
+           else //botton to top 
+           {
+              while(row>=0 && i<s.size())
+              {
+                  v[row--].push_back(s[i++]);
+              }
+              row=1;
+           }
+           if (i>=s.size())
+           break;
+           direction=!direction; //changing direction 
+       }
+         string ans="";
+       for(int i=0;i<v.size();i++)
+       {
+           ans+=v[i];
+       }
+       return ans;
+    }
+};
